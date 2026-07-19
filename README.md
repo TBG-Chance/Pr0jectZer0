@@ -11,7 +11,7 @@
 
 # Pr0jectZer0
 
-## Cyber Security Exposure Management Platform
+## Light weight Cyber Exposure Management Platform
 
 > **Know Your Exposure. Prioritize What Matters. Secure with Confidence.**
 
@@ -135,4 +135,4 @@ Pr0jectZer0 is under active development and is not currently represented as gene
 
 ## Legal
 
-Pr0jectZer0, Fix First™, related branding, product concepts, documentation, and unpublished implementation materials are proprietary. See [LICENSE.md](LICENSE.md) and [NOTICE.md](NOTICE.md).
+Pr0jectZer0, Fix First™, related branding, product concepts, documentation, and unpublished implementation materials are proprietary. See [LICENSE.md](LICENSE.md) and [NOTICE.md](NOTICE.md). Product of The Bostrom Group 2026 all rights reserved
