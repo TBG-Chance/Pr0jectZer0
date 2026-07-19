@@ -8,7 +8,7 @@ Use the full product name in public materials. Internal shorthand such as â€œPZâ
 
 ## Product Descriptor
 
-**Cyber Security Exposure Management Platform**
+**Cyber Exposure Management Platform**
 
 ## Permanent Tagline
 
