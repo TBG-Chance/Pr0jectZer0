@@ -1,6 +1,6 @@
 # Proprietary License — All Rights Reserved
 
-Copyright © 2026 Pr0jectZer0. All rights reserved.
+Copyright © 2026 The Bostrom Group. All rights reserved.
 
 The contents of this repository are provided for informational and product-showcase purposes only.
 
