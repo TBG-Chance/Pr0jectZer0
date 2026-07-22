@@ -1,29 +1,36 @@
 # Changelog
 
-All notable public-facing documentation, brand, and product-direction changes will be recorded here.
+Public-facing product, documentation, brand, and architecture milestones are recorded here.
 
 ## [Unreleased]
 
+### Planned
+
+- Additional validated product screenshots
+- Native Windows packaging documentation
+- Pilot deployment guidance
+
+## [0.2.0-preview] — 2026-07-22
+
 ### Added
 
-- Documentation-only public repository structure
-- Permanent product tagline
-- Privacy-first architecture statement
-- Current phased product roadmap
-- Public security reporting policy
-- Proprietary license and notice
-- Approved product brand reference
-- Approved dashboard design direction
+- Registered-device dashboard authentication overview
+- Companion Pr0jectZer0 Auth repository link
+- Mobile enrollment and approval architecture
+- Browser-bound session security explanation
+- Physical Android device validation milestone
 
 ### Changed
 
-- Public positioning standardized as a **Cyber Security Exposure Management Platform**
-- Deployment direction standardized around a native Windows experience
-- One-click enrollment established as the preferred onboarding experience
-- Cloud licensing separated from the on-premises security data plane
+- High-level architecture now includes the companion authentication app
+- Public status updated to reflect the working end-to-end authentication milestone
+- Typography and trademark rendering corrected across primary documentation
 
 ## [0.1.0-preview] — 2026-07-18
 
 ### Added
 
-- Initial public Pr0jectZer0 product showcase and documentation package
+- Initial public Pr0jectZer0 product showcase
+- Privacy-first architecture statement
+- Product roadmap and security-reporting policy
+- Approved brand and dashboard design direction

@@ -4,112 +4,78 @@
 
 This roadmap communicates current development direction. It is not a contractual delivery commitment, and priorities may change as testing and customer feedback are incorporated.
 
-## Phase 1 — Core Product
+## Recently Validated Milestone — Registered-Device Authentication
 
-**Goal:** Stabilize the foundational exposure-management platform.
+- Companion Android authentication app operating on physical hardware
+- Trusted local-server enrollment
+- Biometric approval with app-local PIN fallback
+- Device-signed, single-use login approval
+- Browser-bound dashboard session creation
+- Local trusted-device status presentation
 
-- Complete and validate the global Findings API
-- Complete dashboard findings integration
+## Phase 1 — Core Product Stabilization
+
+- Complete Findings and dashboard integration
 - Maintain Fix First™ prioritization
-- Finalize the enterprise dashboard and token-access visual system
-- Standardize the permanent product tagline and brand system
-- Rework and clean the private development Git repository
 - Standardize configuration and environment handling
-- Strengthen logging, error handling, testing, and operational diagnostics
+- Strengthen logging, testing, diagnostics, and recovery workflows
+- Harden registered-device management and revocation
 - Remove temporary development instrumentation
 - Review performance and resource requirements
-- Maintain public/private repository separation
 
 ## Phase 2 — Threat Intelligence Library
 
-**Goal:** Improve product and version resolution without redesigning the working correlation pipeline.
-
-- Vendor normalization
-- Product aliases
-- CPE mappings
-- Version normalization
-- Resolver heuristics
-- CISA KEV enrichment
-- Future EPSS enrichment
+- Vendor and product normalization
+- Product aliases and CPE mappings
+- Version normalization and resolver heuristics
+- CISA KEV and future EPSS enrichment
 - Suppression and exception intelligence
 - Independently updateable intelligence package
 
 ## Phase 3 — Public Release Preparation
 
-**Goal:** Establish a professional public presence while keeping all source code private.
-
-- Documentation-only public GitHub repository
-- Product and architecture documentation
-- Privacy statement
-- Installation and operations guidance
-- Screenshots and product visuals
-- Release notes and changelog
-- Website, support, and documentation links
-- Public security reporting policy
+- Documentation-only public repositories
+- Product, authentication, privacy, and architecture documentation
+- Validated screenshots and product visuals
+- Release notes and changelogs
+- Public security-reporting policy
 
 ## Phase 4 — Native Windows Platform
 
-**Goal:** Eliminate customer dependency on Docker and developer tooling.
-
 - Native Windows services
 - Automatic startup and recovery
-- Embedded or bundled dashboard assets
-- Native configuration storage
+- Bundled dashboard assets
+- Native configuration and credential storage
 - Production service logging
-- Secure local credential storage
 - Update-ready service architecture
 
-## Phase 5 — Pilot Deployment
+## Phase 5 — Controlled Pilot
 
-**Goal:** Validate the product on two controlled offline devices.
-
-- Installation validation
-- Endpoint enrollment validation
-- Detection and correlation accuracy
-- Resource consumption measurement
+- Installation and enrollment validation
+- Detection and correlation accuracy review
+- Resource-consumption measurement
 - Offline behavior validation
-- Dashboard usability review
+- Dashboard and Auth usability review
 - Findings and Fix First™ quality review
 
 ## Phase 6 — Commercial Installer and Enrollment
 
-**Goal:** Deliver a set-it-and-forget-it deployment experience.
-
 - Native Windows installer
-- One-click enrollment as the preferred workflow
-- Enrollment token as the secure underlying mechanism
-- Automatic device registration
+- One-click endpoint enrollment
 - Automatic configuration and service startup
-- No manual server-side endpoint creation
-- No Go, Node.js, Docker, or PowerShell requirements for customers
+- Guided authentication-device enrollment and recovery
+- No customer requirement for Go, Node.js, Docker, or PowerShell
 
-## Phase 7 — Cloud Licensing Platform
+## Phase 7 — Privacy-Preserving Licensing
 
-**Goal:** Provide subscription and customer-portal capabilities without collecting customer security data.
-
-- Privacy-preserving license validation
-- Subscription management
+- Subscription management and license validation
 - Endpoint-count billing
-- Customer portal
-- Download and release management
-- Product-version awareness
-- Active, inactive, and disconnected license states
+- Customer portal and release management
 - Grace-period handling for temporary connectivity loss
-- Dashboard deactivation when the validated subscription is inactive
 - No collection of vulnerability, inventory, endpoint, findings, user, IP-address, or customer-file data
 
-## Post-1.0 Product Direction
+## Post-1.0 Direction
 
-Potential future capabilities include:
+Potential future capabilities include executive reporting, policy and exception management, scheduled exports, Microsoft Entra ID deployment assistance, multi-site administration, resolver performance improvements, and remote deployment workflows.
 
-- Executive and compliance reporting
-- Scheduled reports and exports
-- Policy and exception management
-- Active Directory and Microsoft Entra ID deployment assistance
-- Multi-site and MSP-oriented administration
-- Improved resolver and vulnerability-cache performance
-- Remote deployment workflows
-
-## Separate Deferred Project
-
-Data Exfiltration Monitoring remains a separate future product and is intentionally not part of the Pr0jectZer0 core roadmap. Its future direction includes parameter-based transfer monitoring, threshold alerts, destination awareness, and actionable exfiltration risk scoring.
+Data Exfiltration Monitoring remains a separate future product and is not part of the Pr0jectZer0 core roadmap.

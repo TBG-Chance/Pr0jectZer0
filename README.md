@@ -5,134 +5,130 @@
 <p align="center">
   <img alt="Status" src="https://img.shields.io/badge/status-active%20development-0077b6">
   <img alt="Platform" src="https://img.shields.io/badge/platform-Windows-00a8ff">
-  <img alt="Product" src="https://img.shields.io/badge/product-cyber%20exposure%20management-0b2239">
+  <img alt="Authentication" src="https://img.shields.io/badge/auth-registered%20mobile%20device-20b2aa">
   <img alt="Repository" src="https://img.shields.io/badge/repository-documentation%20only-263238">
 </p>
 
 # Pr0jectZer0
 
-## Light weight Cyber Exposure Management Platform
+## Lightweight Cyber Exposure Management Platform
 
 > **Know Your Exposure. Prioritize What Matters. Secure with Confidence.**
 
-Pr0jectZer0 is a privacy-first exposure management platform designed to help small and midsize organizations identify endpoint vulnerabilities, understand what matters most, and focus remediation effort through **Fix First™** prioritization.
+Pr0jectZer0 is a privacy-first exposure management platform designed to help small and midsize organizations identify endpoint vulnerabilities, understand what matters most, and focus remediation through **Fix First™** prioritization.
 
-This repository is the official public product and documentation repository. It intentionally contains **no application source code**. Active development is maintained in a separate private repository.
+This is the official public product-showcase repository. It intentionally contains **no application source code**. Active development is maintained privately.
 
 ## What Pr0jectZer0 Does
 
 - Maintains local endpoint and software inventory
 - Synchronizes vulnerability intelligence
-- Resolves software products to standardized identifiers
-- Correlates installed versions with known vulnerabilities
+- Correlates installed products and versions with known vulnerabilities
 - Enriches risk with CISA Known Exploited Vulnerabilities context
-- Persists actionable findings
-- Prioritizes the highest-impact remediation work through **Fix First™**
+- Persists actionable findings inside the customer environment
+- Prioritizes high-impact remediation through **Fix First™**
 - Presents exposure through a purpose-built management dashboard
+- Protects dashboard access with registered-device approval
+
+## Registered-Device Dashboard Login
+
+Pr0jectZer0 now supports a working passwordless dashboard handoff using the companion [Pr0jectZer0 Auth](https://github.com/TBG-Chance/Pr0jectZer0-Auth) mobile app.
+
+```mermaid
+sequenceDiagram
+    participant B as Dashboard browser
+    participant S as On-premises Pr0jectZer0 server
+    participant A as Pr0jectZer0 Auth app
+    B->>S: Request one-time login challenge
+    S-->>B: Display browser-bound QR code
+    A->>A: Verify trusted server and confirm locally
+    A->>S: Submit signed device approval
+    S-->>B: Create browser-bound dashboard session
+```
+
+The user confirms on the phone with biometrics or an app-local PIN. Biometric data, the local PIN, and the device private key remain on the phone. The QR code alone cannot claim the resulting browser session.
+
+See the public [Authentication Architecture](docs/AUTHENTICATION.md) and the companion [Auth showcase](https://github.com/TBG-Chance/Pr0jectZer0-Auth).
 
 ## Privacy by Design
 
-Customer security data remains inside the customer's environment.
+Customer security data remains inside the customer's environment. Pr0jectZer0 is designed so a future licensing service receives only the minimum operational metadata required to validate a subscription, such as an anonymous server identifier, product version, endpoint count, and subscription status.
 
-Pr0jectZer0's planned licensing service will receive only the minimum operational metadata required to validate a subscription:
-
-- Anonymous server identifier
-- Product version
-- Endpoint count
-- Subscription status
-
-It is intentionally designed not to receive vulnerability findings, software inventory, endpoint names, usernames, IP addresses, customer files, or scan results.
+It is not designed to receive vulnerability findings, software inventory, endpoint names, usernames, IP addresses, customer files, or scan results.
 
 See [Privacy Architecture](docs/PRIVACY_ARCHITECTURE.md).
 
 ## Product Direction
 
-Pr0jectZer0 is being developed as a native Windows platform for organizations that want a straightforward, set-it-and-forget-it exposure management experience without requiring Docker or development tooling on customer systems.
+Pr0jectZer0 is being developed toward a native Windows experience for organizations that want straightforward, set-it-and-forget-it exposure management without requiring development tooling.
 
 ### Core principles
 
 - **Privacy first** — Security data stays local.
 - **Actionable** — Prioritize what should be fixed first.
-- **Windows native** — Simple deployment and operation.
-- **Lightweight** — Focused architecture without unnecessary platform sprawl.
-- **SMB friendly** — Designed for organizations without a large security team.
-- **Commercial-quality UX** — Clear, polished information for technical and executive users.
+- **Secure access** — Require trusted-device approval for dashboard sessions.
+- **Windows native** — Keep deployment and operation straightforward.
+- **Lightweight** — Avoid unnecessary platform sprawl.
+- **SMB friendly** — Serve organizations without a large security team.
+- **Commercial-quality UX** — Present information clearly to technical and executive users.
 
-## Dashboard Direction
+## Dashboard
 
 <p align="center">
   <img src="assets/dashboard-concept.png" alt="Pr0jectZer0 dashboard design direction" width="100%">
 </p>
 
-The visual direction uses a deep navy and graphite interface with restrained electric-blue accents, clear risk signaling, and a prominent **Fix First™** workflow.
+The visual system uses deep navy and graphite surfaces, restrained electric-blue accents, clear risk signaling, and a prominent **Fix First™** workflow.
 
 ## High-Level Architecture
 
-```text
-Windows Endpoints
-       │
-       │ secure check-in and inventory
-       ▼
-Pr0jectZer0 On-Premises Server
-       ├── Endpoint inventory
-       ├── Vulnerability intelligence
-       ├── Product and version correlation
-       ├── Findings persistence
-       ├── Risk prioritization
-       └── Management dashboard
-
-Future privacy-preserving cloud service
-       ├── License validation
-       ├── Subscription status
-       ├── Product version
-       └── Endpoint count only
+```mermaid
+flowchart TB
+    E[Windows endpoints] -->|Secure inventory check-in| S[On-premises Pr0jectZer0 server]
+    S --> I[Endpoint and software inventory]
+    S --> V[Vulnerability intelligence]
+    S --> F[Findings and Fix First prioritization]
+    S --> D[Management dashboard]
+    A[Pr0jectZer0 Auth mobile app] -->|Signed one-time approval| S
+    S -. Minimal subscription metadata only .-> L[Future licensing service]
 ```
 
-Implementation details, source code, internal APIs, database schemas, matching logic, and proprietary scoring internals are not published in this repository.
+Implementation details, source code, internal APIs, database schemas, matching logic, and proprietary scoring internals are not published here.
+
+## Current Development Milestone
+
+The current private development build has validated:
+
+- Mobile-device enrollment against a local Pr0jectZer0 server
+- Physical Android device operation
+- Biometric confirmation with app-local PIN fallback
+- Device-bound signed login approval
+- Browser-bound, single-use dashboard session creation
+- Local trusted-device state and status presentation
+
+This milestone is a development preview, not a generally available release or security certification.
 
 ## Roadmap
 
-The current roadmap includes:
-
-1. Core product stabilization, Findings API and dashboard completion, enterprise UI, Git cleanup, and production hardening
-2. Threat Intelligence Library
-3. Public release preparation
-4. Native Windows platform
-5. Pilot deployment
-6. Commercial one-click installer and enrollment
-7. Privacy-preserving cloud licensing platform
-
-See the full [Product Roadmap](ROADMAP.md).
+The roadmap covers core stabilization, threat-intelligence improvements, native Windows packaging, controlled pilots, commercial installation, and privacy-preserving licensing. See the full [Product Roadmap](ROADMAP.md).
 
 ## Repository Policy
 
-This repository may contain:
+This repository may contain public documentation, screenshots, design concepts, roadmap information, release notes, security-reporting guidance, and high-level architecture summaries.
 
-- Public documentation
-- Product screenshots and design concepts
-- Public roadmap information
-- Release notes
-- Security reporting information
-- Privacy and architecture summaries
-
-This repository does **not** contain:
-
-- Application source code
-- Build scripts for proprietary software
-- Internal database schemas
-- Private implementation documentation
-- Credentials, tokens, or customer information
-- Proprietary matching or scoring logic
+It does **not** contain application source code, proprietary build systems, internal schemas, credentials, customer information, matching algorithms, or scoring formulas.
 
 ## Status
 
-Pr0jectZer0 is under active development and is not currently represented as generally available or production-supported. Features, architecture, screenshots, pricing, and timelines may change during development.
+Pr0jectZer0 is under active development and is not currently represented as generally available or production-supported. Features, architecture, screenshots, pricing, and timelines may change.
 
 ## Website and Contact
 
-- Product website: **https://pr0jectzer0.com**
+- Product website: [pr0jectzer0.com](https://pr0jectzer0.com)
 - General and security contact: **info@thebostromgroup.com**
 
 ## Legal
 
-Pr0jectZer0, Fix First™, related branding, product concepts, documentation, and unpublished implementation materials are proprietary. See [LICENSE.md](LICENSE.md) and [NOTICE.md](NOTICE.md). Product of The Bostrom Group 2026 all rights reserved
+Pr0jectZer0, Pr0jectZer0 Auth, Fix First™, related branding, product concepts, documentation, and unpublished implementation materials are proprietary. See [LICENSE.md](LICENSE.md) and [NOTICE.md](NOTICE.md).
+
+Copyright © 2026 The Bostrom Group. All rights reserved.
